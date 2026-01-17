@@ -1,0 +1,230 @@
+---
+AIGC:
+    ContentProducer: Minimax Agent AI
+    ContentPropagator: Minimax Agent AI
+    Label: AIGC
+    ProduceID: "00000000000000000000000000000000"
+    PropagateID: "00000000000000000000000000000000"
+    ReservedCode1: 30460221008ee5c6f99ebc9e0c03b350d792752e971109e33fd6ed6354fa94e66fb04dd6d3022100dc1ac905cfe6be13afa8f4e9c03d532c215ccb28608bac0f6de02292da9c0701
+    ReservedCode2: 304502200b7a80c46ea3b75e11c7d8e2fb8e0986a47ae55b1bc0724d7c99a022672b4508022100de9a20fc9b6d1e4dff74350d7cd584498695db067386d77626fb44d7cb1edc30
+---
+
+# CLIProxyAPI
+
+命令行代理 API 管理工具 - 一个强大的代理配置管理系统
+
+## 功能特性
+
+- 🔐 **认证管理**: 管理各种认证配置 (API Key, OAuth, Token 等)
+- 💾 **存储管理**: 统一存储接口 (Memory, Redis, SQLite, File 等)
+- 🌐 **代理管理**: HTTP/HTTPS/SOCKS5 代理配置与测试
+- 🚀 **RESTful API**: 完整的 HTTP API 接口
+- 💻 **CLI 工具**: 命令行管理工具
+- 📊 **实时监控**: 系统状态和统计信息
+
+## 安装
+
+```bash
+# 克隆项目
+git clone https://github.com/yourusername/CLIProxyAPI-Python.git
+cd CLIProxyAPI-Python
+
+# 安装依赖
+pip install -r requirements.txt
+```
+
+## 快速开始
+
+### 方式 1: 启动服务器
+
+```bash
+python main.py
+```
+
+或使用 CLI:
+
+```bash
+python cli.py server start --host 0.0.0.0 --port 8000
+```
+
+### 方式 2: 使用 CLI 工具
+
+```bash
+# 查看帮助
+python cli.py --help
+
+# 查看系统状态
+python cli.py system status
+```
+
+## 使用指南
+
+### 认证管理
+
+```bash
+# 创建认证配置
+python cli.py auth create --name my-api --type api_key --config '{"key": "your-api-key"}'
+
+# 列出所有认证配置
+python cli.py auth list
+
+# 获取认证配置详情
+python cli.py auth get --name my-api
+
+# 更新认证配置
+python cli.py auth update --name my-api --config '{"key": "new-key"}'
+
+# 删除认证配置
+python cli.py auth delete --name my-api
+```
+
+### 存储管理
+
+```bash
+# 创建存储配置
+python cli.py store create --name my-store --type memory --config '{"max_items": 100}'
+
+# 列出所有存储配置
+python cli.py store list
+
+# 写入数据
+python cli.py store write --name my-store --key user1 --value '{"name": "Alice"}'
+
+# 读取数据
+python cli.py store read --name my-store --key user1
+
+# 删除存储配置
+python cli.py store delete --name my-store
+```
+
+### 代理管理
+
+```bash
+# 创建代理配置
+python cli.py proxy create --name my-proxy --type http --host 127.0.0.1 --port 7890
+
+# 创建带认证的代理
+python cli.py proxy create --name auth-proxy --type socks5 --host 1.2.3.4 --port 1080 --username user --password pass
+
+# 列出所有代理配置
+python cli.py proxy list
+
+# 测试代理
+python cli.py proxy test --name my-proxy
+
+# 查看代理统计
+python cli.py proxy stats
+
+# 删除代理配置
+python cli.py proxy delete --name my-proxy
+```
+
+## API 文档
+
+启动服务器后，访问以下地址查看 API 文档：
+
+- Swagger UI: http://localhost:8000/docs
+- ReDoc: http://localhost:8000/redoc
+
+### API 端点
+
+#### 认证管理
+- `POST /api/auths` - 创建认证配置
+- `GET /api/auths` - 列出所有认证配置
+- `GET /api/auths/{name}` - 获取认证配置
+- `PUT /api/auths/{name}` - 更新认证配置
+- `DELETE /api/auths/{name}` - 删除认证配置
+
+#### 存储管理
+- `POST /api/stores` - 创建存储配置
+- `GET /api/stores` - 列出所有存储配置
+- `GET /api/stores/{name}` - 获取存储配置
+- `PUT /api/stores/{name}` - 更新存储配置
+- `DELETE /api/stores/{name}` - 删除存储配置
+- `POST /api/stores/{name}/read` - 读取数据
+- `POST /api/stores/{name}/write` - 写入数据
+
+#### 代理管理
+- `POST /api/proxies` - 创建代理配置
+- `GET /api/proxies` - 列出所有代理配置
+- `GET /api/proxies/{name}` - 获取代理配置
+- `PUT /api/proxies/{name}` - 更新代理配置
+- `DELETE /api/proxies/{name}` - 删除代理配置
+- `POST /api/proxies/test` - 测试代理连接
+- `GET /api/proxies/stats` - 获取代理统计
+
+## 配置
+
+### 环境变量
+
+创建 `.env` 文件设置环境变量：
+
+```env
+# 服务器配置
+API_HOST=0.0.0.0
+API_PORT=8000
+DEBUG=False
+
+# 数据目录
+DATA_DIR=./data
+LOG_DIR=./logs
+
+# 日志级别
+LOG_LEVEL=INFO
+```
+
+## 项目结构
+
+```
+CLIProxyAPI-Python/
+├── app/
+│   ├── __init__.py          # 应用初始化
+│   ├── main.py              # 主入口
+│   ├── cli.py               # CLI 工具
+│   ├── settings.py          # 配置管理
+│   ├── logger.py            # 日志配置
+│   ├── api/                 # API 模块
+│   │   ├── __init__.py
+│   │   └── routes.py        # 路由定义
+│   ├── auth/                # 认证模块
+│   │   ├── __init__.py
+│   │   ├── models.py        # 数据模型
+│   │   └── service.py       # 业务逻辑
+│   ├── stores/              # 存储模块
+│   │   ├── __init__.py
+│   │   ├── models.py
+│   │   └── service.py
+│   └── proxy/               # 代理模块
+│       ├── __init__.py
+│       ├── models.py
+│       └── service.py
+├── data/                    # 数据目录
+├── logs/                    # 日志目录
+├── main.py                  # 服务器入口
+├── cli.py                   # CLI 工具入口
+├── requirements.txt         # 依赖包
+├── .env.example            # 环境变量示例
+└── README.md               # 项目说明
+```
+
+## 开发
+
+```bash
+# 运行开发服务器
+uvicorn main:app --reload --host 0.0.0.0 --port 8000
+
+# 运行测试
+pytest
+```
+
+## 许可证
+
+MIT License
+
+## 贡献
+
+欢迎提交 Issue 和 Pull Request！
+
+## 作者
+
+智谱清言

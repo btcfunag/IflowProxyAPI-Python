@@ -1,0 +1,481 @@
+"""
+简化版 URL 登录模块 - 适用于 Kivy 安卓应用（优化版）
+
+使用方式：
+    # 在 Kivy 应用中
+    from app.iflow.simplified_login import create_login_session
+    
+    result = create_login_session()  # 返回 session_id 和 login_url
+    # result = {"session_id": "...", "login_url": "...", "expires_in": 600}
+"""
+
+import json
+import secrets
+import threading
+import time
+import sys
+from datetime import datetime, timedelta
+from typing import Optional, Dict, Any
+from pathlib import Path
+from urllib.parse import urlencode
+
+# 尝试相对导入，如果失败则使用独立的日志和配置
+try:
+    from ..logger import logger
+    from ..settings import DATA_DIR
+    from .auth import (
+        IFLOW_OAUTH_AUTHORIZE_ENDPOINT,
+        IFLOW_OAUTH_CLIENT_ID,
+        IFLOW_CALLBACK_PORT,
+    )
+    _USE_RELATIVE_IMPORT = True
+except ImportError:
+    _USE_RELATIVE_IMPORT = False
+    
+    class SimpleLogger:
+        def info(self, msg):
+            print(f"[INFO] {msg}", flush=True)
+        def error(self, msg):
+            print(f"[ERROR] {msg}", flush=True)
+        def warning(self, msg):
+            print(f"[WARNING] {msg}", flush=True)
+        def debug(self, msg):
+            print(f"[DEBUG] {msg}", flush=True)
+    
+    logger = SimpleLogger()
+    DATA_DIR = Path("/storage/emulated/0/000CLIProxyAPI-Python/data")
+    
+    # 默认配置
+    IFLOW_OAUTH_AUTHORIZE_ENDPOINT = "https://iflow.cn/oauth"
+    IFLOW_OAUTH_CLIENT_ID = "10009311001"
+    IFLOW_CALLBACK_PORT = 11451
+
+# 配置
+DEFAULT_SERVER_URL = "http://localhost:8000"
+SESSION_EXPIRE_SECONDS = 600
+
+
+class LoginSession:
+    """登录会话类"""
+    
+    def __init__(
+        self,
+        session_id: str,
+        status: str = "pending",
+        email: str = "",
+        api_key: str = "",
+        expire_at: Optional[datetime] = None,
+        auth_data: Optional[Dict[str, Any]] = None,
+    ):
+        self.session_id = session_id
+        self.status = status
+        self.email = email
+        self.api_key = api_key
+        self.expire_at = expire_at or datetime.now() + timedelta(seconds=SESSION_EXPIRE_SECONDS)
+        self.auth_data = auth_data or {}
+    
+    def is_expired(self) -> bool:
+        return datetime.now() > self.expire_at
+    
+    def is_completed(self) -> bool:
+        return self.status == "completed"
+    
+    def is_failed(self) -> bool:
+        return self.status == "failed"
+
+
+class LoginStatusManager:
+    """登录状态管理器 - 仅使用内存存储，避免文件 I/O 阻塞"""
+    
+    _lock = threading.Lock()
+    _sessions: Dict[str, LoginSession] = {}
+    
+    @classmethod
+    def create_session(cls, state: str, server_url: str = "") -> LoginSession:
+        """创建新的登录会话（仅内存操作，无文件 I/O）"""
+        with cls._lock:
+            # 清理过期的会话
+            expired = [sid for sid, s in cls._sessions.items() if s.is_expired()]
+            for sid in expired:
+                cls._sessions.pop(sid, None)
+            
+            session = LoginSession(session_id=state)
+            cls._sessions[state] = session
+            print(f"[INFO] 创建登录会话: {state}", flush=True)
+            return session
+    
+    @classmethod
+    def get_session(cls, session_id: str) -> Optional[LoginSession]:
+        """获取会话"""
+        with cls._lock:
+            s = cls._sessions.get(session_id)
+            if s and s.is_expired():
+                cls._sessions.pop(session_id, None)
+                return None
+            return s
+    
+    @classmethod
+    def complete_session(
+        cls,
+        session_id: str,
+        email: str,
+        api_key: str,
+        auth_data: Optional[Dict[str, Any]] = None,
+    ) -> bool:
+        """完成登录会话"""
+        with cls._lock:
+            s = cls._sessions.get(session_id)
+            if s:
+                s.email = email
+                s.api_key = api_key
+                s.status = "completed"
+                s.auth_data = auth_data or {}
+                print(f"[INFO] 登录会话完成: {session_id}, {email}", flush=True)
+                return True
+            return False
+    
+    @classmethod
+    def fail_session(cls, session_id: str, reason: str = "") -> bool:
+        """标记登录会话失败"""
+        with cls._lock:
+            s = cls._sessions.get(session_id)
+            if s:
+                s.status = "failed"
+                s.auth_data = {"error": reason}
+                print(f"[INFO] 登录会话失败: {session_id}, reason: {reason}", flush=True)
+                return True
+            return False
+    
+    @classmethod
+    def get_status(cls, session_id: str) -> Dict[str, Any]:
+        """获取登录状态"""
+        s = cls.get_session(session_id)
+        if not s:
+            return {"status": "not_found"}
+        if s.is_completed():
+            result = {
+                "status": "completed",
+                "email": s.email,
+                "api_key": s.api_key,
+            }
+            result.update(s.auth_data)
+            return result
+        if s.is_failed():
+            return {"status": "failed", "message": s.auth_data.get("error", "登录失败")}
+        expires_in = int((s.expire_at - datetime.now()).total_seconds())
+        return {"status": "pending", "expires_in": max(0, expires_in)}
+
+
+def generate_authorization_url(
+    state: str,
+    server_url: str = "",
+    port: int = IFLOW_CALLBACK_PORT,
+) -> str:
+    """
+    生成 iFlow OAuth 授权 URL
+    
+    Args:
+        state: 随机状态参数，用于防止 CSRF 攻击
+        server_url: 服务器地址，用于构建回调 URL
+        port: OAuth 回调端口（此版本未使用，因为使用服务器端回调）
+    
+    Returns:
+        授权 URL 字符串
+    """
+    # 回调 URL 使用主服务器的 /api/iflow/callback 端点
+    # 注意：FastAPI 路由注册时加了 /api 前缀
+    redirect_uri = f"{server_url}/api/iflow/callback"
+    
+    params = {
+        "loginMethod": "phone",
+        "type": "phone",
+        "redirect": redirect_uri,
+        "state": state,
+        "client_id": IFLOW_OAUTH_CLIENT_ID,
+    }
+    
+    auth_url = f"{IFLOW_OAUTH_AUTHORIZE_ENDPOINT}?{urlencode(params)}"
+    return auth_url, redirect_uri
+
+
+def create_login_session(server_url: str = DEFAULT_SERVER_URL) -> Dict[str, Any]:
+    """
+    创建简化版登录会话
+    
+    生成授权 URL 和会话 ID，用户在浏览器中完成登录后，
+    Kivy 应用通过轮询获取登录结果。
+    
+    Args:
+        server_url: 服务器地址，用于构建回调 URL
+    
+    Returns:
+        包含 session_id, login_url, expires_in 的字典
+    """
+    print(f"[DEBUG] create_login_session called with server_url={server_url}", flush=True)
+    
+    # 生成随机 state
+    state = secrets.token_urlsafe(16)
+    print(f"[DEBUG] Generated state: {state}", flush=True)
+    
+    # 创建登录会话（仅内存操作，无文件 I/O）
+    session = LoginStatusManager.create_session(state, server_url)
+    print(f"[DEBUG] Session created in memory", flush=True)
+    
+    # 生成授权 URL
+    login_url, redirect_uri = generate_authorization_url(state, server_url)
+    
+    print(f"[INFO] 创建登录会话: state={state}", flush=True)
+    print(f"[INFO] 授权 URL: {login_url}", flush=True)
+    print(f"[INFO] 回调 URL: {redirect_uri}", flush=True)
+    
+    return {
+        "session_id": state,
+        "login_url": login_url,
+        "redirect_uri": redirect_uri,
+        "expires_in": SESSION_EXPIRE_SECONDS,
+    }
+
+
+def get_login_status(session_id: str) -> Dict[str, Any]:
+    """
+    获取登录状态
+    
+    Args:
+        session_id: 会话 ID
+    
+    Returns:
+        包含状态的字典：pending/completed/failed/not_found
+    """
+    return LoginStatusManager.get_status(session_id)
+
+
+def complete_login_session(
+    session_id: str,
+    email: str,
+    api_key: str,
+    auth_data: Optional[Dict[str, Any]] = None,
+) -> bool:
+    """
+    完成登录会话
+    
+    Args:
+        session_id: 会话 ID
+        email: 用户邮箱
+        api_key: API Key
+        auth_data: 其他认证数据
+    
+    Returns:
+        是否成功
+    """
+    return LoginStatusManager.complete_session(session_id, email, api_key, auth_data)
+
+
+def fail_login_session(session_id: str, reason: str = "") -> bool:
+    """
+    标记登录会话失败
+    
+    Args:
+        session_id: 会话 ID
+        reason: 失败原因
+    
+    Returns:
+        是否成功
+    """
+    return LoginStatusManager.fail_session(session_id, reason)
+
+
+def auto_login(
+    server_url: str = DEFAULT_SERVER_URL,
+    timeout: int = 300,
+    poll_interval: int = 2,
+) -> Dict[str, Any]:
+    """
+    自动完成登录（无需用户输入）
+
+    1. 创建登录会话
+    2. 自动打开浏览器（如果失败会打印网址）
+    3. 等待登录结果
+
+    Args:
+        server_url: 服务器地址
+        timeout: 超时时间（秒）
+        poll_interval: 轮询间隔（秒）
+
+    Returns:
+        成功: {"success": True, "email": "...", "api_key": "...", "login_url": "..."}
+        失败: {"success": False, "message": "..."}
+    """
+    # 强制刷新输出
+    sys.stdout.flush()
+    print(f"\n{'='*60}", flush=True)
+    print(f"        iFlow 自动登录", flush=True)
+    print(f"{'='*60}", flush=True)
+    print(f"服务器: {server_url}", flush=True)
+    sys.stdout.flush()
+    
+    try:
+        # 1. 创建登录会话
+        print("正在创建登录会话...", flush=True)
+        sys.stdout.flush()
+        session_data = create_login_session(server_url)
+        session_id = session_data["session_id"]
+        login_url = session_data["login_url"]
+        
+        print(f"✓ 会话创建成功！", flush=True)
+        print(f"✓ Session ID: {session_id}", flush=True)
+        sys.stdout.flush()
+        
+        # 打印登录网址（使用分隔线突出显示）
+        print(f"\n{'='*60}", flush=True)
+        print(f"登录网址 (请复制到浏览器):", flush=True)
+        print(f"{login_url}", flush=True)
+        print(f"{'='*60}\n", flush=True)
+        sys.stdout.flush()
+        
+    except Exception as e:
+        print(f"\n[ERROR] 创建会话失败: {e}", flush=True)
+        import traceback
+        traceback.print_exc()
+        sys.stdout.flush()
+        return {"success": False, "message": f"创建会话失败: {str(e)}"}
+    
+    # 2. 尝试打开浏览器
+    browser_opened = False
+    try:
+        print("正在尝试打开浏览器...", flush=True)
+        sys.stdout.flush()
+        import webbrowser
+        webbrowser.open(login_url)
+        print("✓ 已发送打开浏览器请求", flush=True)
+        browser_opened = True
+    except Exception as e:
+        print(f"[WARNING] 打开浏览器失败: {e}", flush=True)
+        print("[INFO] 请手动在浏览器中打开上面的登录网址", flush=True)
+    sys.stdout.flush()
+    
+    # 3. 等待登录结果
+    print(f"\n等待登录完成...（超时: {timeout}秒）", flush=True)
+    print("请在浏览器中完成登录", flush=True)
+    print("状态变化时会显示在这里\n", flush=True)
+    sys.stdout.flush()
+    
+    start_time = time.time()
+    last_status = ""
+    
+    while time.time() - start_time < timeout:
+        status = get_login_status(session_id)
+        st = status.get("status", "")
+        
+        # 只在状态改变时打印
+        if st != last_status:
+            print(f"[状态] {st}", flush=True)
+            last_status = st
+            sys.stdout.flush()
+        
+        if st == "completed":
+            print(f"\n{'='*60}", flush=True)
+            print(f"  登录成功！", flush=True)
+            print(f"  账号: {status.get('email')}", flush=True)
+            print(f"{'='*60}\n", flush=True)
+            sys.stdout.flush()
+            return {
+                "success": True,
+                "email": status.get("email"),
+                "api_key": status.get("api_key"),
+                "login_url": login_url,
+                "browser_opened": browser_opened,
+                "session_id": session_id,
+            }
+        
+        if st == "not_found":
+            print(f"\n[ERROR] 会话已过期或不存在", flush=True)
+            sys.stdout.flush()
+            return {
+                "success": False,
+                "message": "会话已过期",
+                "login_url": login_url,
+                "browser_opened": browser_opened,
+            }
+        
+        if st == "failed":
+            print(f"\n[ERROR] 登录失败: {status.get('message', '未知错误')}", flush=True)
+            sys.stdout.flush()
+            return {
+                "success": False,
+                "message": status.get("message", "登录失败"),
+                "login_url": login_url,
+                "browser_opened": browser_opened,
+            }
+        
+        time.sleep(poll_interval)
+    
+    print(f"\n[ERROR] 登录超时（{timeout}秒）", flush=True)
+    print(f"登录网址: {login_url}", flush=True)
+    print("请在浏览器中完成登录后刷新此页面\n", flush=True)
+    sys.stdout.flush()
+    return {
+        "success": False,
+        "message": f"登录超时（{timeout}秒）",
+        "login_url": login_url,
+        "browser_opened": browser_opened,
+    }
+
+
+def async_auto_login(
+    server_url: str = DEFAULT_SERVER_URL,
+    timeout: int = 300,
+) -> Dict[str, Any]:
+    """异步版本的自动登录（用于 Kivy）"""
+    result = {"success": False, "message": "处理中"}
+    
+    def do_login():
+        nonlocal result
+        result = auto_login(server_url, timeout)
+    
+    thread = threading.Thread(target=do_login, daemon=True)
+    thread.start()
+    thread.join()
+    
+    return result
+
+
+# 兼容旧代码的别名
+SimplifiedLoginManager = LoginStatusManager
+
+
+__all__ = [
+    "LoginSession",
+    "LoginStatusManager",
+    "SimplifiedLoginManager",
+    "create_login_session",
+    "get_login_status",
+    "complete_login_session",
+    "fail_login_session",
+    "generate_authorization_url",
+    "auto_login",
+    "async_auto_login",
+]
+
+
+if __name__ == "__main__":
+    # 直接运行时的自动化测试
+    print("\n" + "=" * 60, flush=True)
+    print("        iFlow 简化版登录测试", flush=True)
+    print("=" * 60, flush=True)
+    
+    result = auto_login()
+    
+    print("\n" + "=" * 60, flush=True)
+    
+    if result["success"]:
+        print("  登录成功！", flush=True)
+        print(f"  账号: {result['email']}", flush=True)
+        print(f"  API Key: {result.get('api_key', 'N/A')[:20]}...", flush=True)
+    else:
+        print(f"  登录失败: {result['message']}", flush=True)
+        login_url = result.get("login_url", "")
+        if login_url:
+            print(f"  登录网址: {login_url}", flush=True)
+            print("  （如浏览器未自动打开，请手动复制网址到浏览器）", flush=True)
+    
+    print("=" * 60 + "\n", flush=True)

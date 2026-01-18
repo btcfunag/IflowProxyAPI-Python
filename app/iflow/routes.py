@@ -3,7 +3,9 @@ import asyncio
 import base64
 import json
 import secrets
+import sqlite3
 from datetime import datetime, timezone
+from pathlib import Path
 from typing import Optional
 from fastapi import APIRouter, HTTPException, Request
 from .models import (
@@ -401,6 +403,372 @@ async def refresh_iflow_token(request: IFlowTokenRefreshRequest):
     except Exception as e:
         logger.error(f"刷新 Token 异常: {e}")
         raise HTTPException(status_code=500, detail=f"刷新失败: {str(e)}")
+
+
+__all__ = ["router"]
+
+
+# ============ 简化版登录路由 ============
+
+@router.post("/iflow/login/simplified", response_model=IFlowAuthResponse)
+async def create_simplified_login(request: Request):
+    """
+    创建简化版登录会话
+
+    生成一个一次性登录 URL，用户在浏览器中完成登录后，
+    Kivy 应用通过轮询 /api/iflow/login/status/{session_id} 获取登录结果。
+
+    适用于无法绑定本地端口的环境（如 Kivy 安卓应用）
+    """
+    from .simplified_login import (
+        create_login_session,
+        generate_authorization_url,
+        LoginStatusManager,
+        SessionDatabase,
+    )
+    import sqlite3
+    from pathlib import Path
+
+    try:
+        # 获取服务器地址
+        server_url = str(request.base_url).rstrip("/")
+        logger.info(f"=== 开始创建简化登录会话 ===")
+        logger.info(f"server_url={server_url}")
+        
+        # 创建登录会话
+        logger.info("调用 create_login_session...")
+        session_data = create_login_session(server_url)
+        session_id = session_data["session_id"]
+        login_url = session_data["login_url"]
+        redirect_uri = session_data.get("redirect_uri", "")
+
+        logger.info(f"简化版登录会话创建成功: {session_id}")
+        logger.info(f"登录URL: {login_url}")
+        logger.info(f"回调URL: {redirect_uri}")
+        
+        # 直接查询数据库确认会话已保存
+        logger.info("验证数据库中的会话...")
+        
+        # 获取数据库路径
+        try:
+            db = SessionDatabase()
+            db_path = db.db_path
+        except Exception as e:
+            db_path = Path("/storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db")
+            logger.warning(f"获取数据库实例失败，使用默认路径: {e}")
+        
+        logger.info(f"数据库路径: {db_path}")
+        
+        if db_path.exists():
+            with sqlite3.connect(db_path) as conn:
+                conn.row_factory = sqlite3.Row
+                cursor = conn.execute("SELECT * FROM login_sessions WHERE session_id = ?", (session_id,))
+                row = cursor.fetchone()
+                if row:
+                    logger.info(f"✓ 数据库验证成功: 会话已保存")
+                    logger.info(f"  - session_id: {row['session_id']}")
+                    logger.info(f"  - status: {row['status']}")
+                    logger.info(f"  - created_at: {row['created_at']}")
+                else:
+                    logger.error(f"✗ 数据库验证失败: 会话未找到!")
+                    # 打印所有会话
+                    cursor = conn.execute("SELECT * FROM login_sessions")
+                    all_rows = cursor.fetchall()
+                    logger.error(f"数据库中共有 {len(all_rows)} 个会话")
+                    for r in all_rows:
+                        logger.error(f"  - {r['session_id']}: {r['status']}")
+        else:
+            logger.error(f"✗ 数据库文件不存在: {db_path}")
+        
+        logger.info(f"=== 创建登录会话完成 ===")
+        
+        return IFlowAuthResponse(
+            success=True,
+            message="登录会话创建成功，请在浏览器中完成登录",
+            data={
+                "session_id": session_id,
+                "login_url": login_url,
+                "expires_in": session_data["expires_in"],
+            },
+        )
+
+    except Exception as e:
+        logger.error(f"创建简化登录会话异常: {e}")
+        import traceback
+        logger.error(f"堆栈跟踪: {traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail=f"创建登录会话失败: {str(e)}")
+
+
+@router.get("/iflow/login/status/{session_id}")
+async def get_login_status(session_id: str):
+    """
+    获取简化版登录状态
+
+    Kivy 应用轮询此接口获取登录结果。
+    返回登录状态（pending/completed/failed）和认证信息。
+    """
+    from .simplified_login import get_login_status
+
+    try:
+        logger.debug(f"get_login_status: session_id={session_id}")
+        status = get_login_status(session_id)
+        logger.debug(f"get_login_status result: {status}")
+
+        if status.get("status") == "not_found":
+            logger.warning(f"会话不存在或已过期: {session_id}")
+            raise HTTPException(status_code=404, detail="登录会话不存在或已过期")
+
+        return {
+            "success": True,
+            "data": status,
+        }
+
+    except HTTPException:
+        raise
+    except Exception as e:
+        logger.error(f"获取登录状态异常: {e}")
+        import traceback
+        logger.error(f"堆栈跟踪: {traceback.format_exc()}")
+        raise HTTPException(status_code=500, detail=f"获取状态失败: {str(e)}")
+
+
+@router.get("/iflow/callback")
+async def iflow_oauth_callback(
+    request: Request,
+    code: str = "",
+    state: str = "",
+    error: str = "",
+    error_description: str = "",
+):
+    """
+    iFlow OAuth 回调端点
+
+    用户在 iFlow 网站完成登录后，iFlow 会重定向到此端点。
+    此端点接收 OAuth code，交换 token，并保存认证信息。
+
+    注意：此端点需要在 iFlow OAuth 配置中注册为有效的回调 URL
+    """
+    from .simplified_login import LoginStatusManager, complete_login_session, fail_login_session
+
+    auth_service = get_auth_service()
+
+    # 打印完整的请求信息用于调试
+    logger.info(f"收到 OAuth 回调请求")
+    logger.info(f"请求URL: {request.url}")
+    logger.info(f"原始参数: code={code[:30] if code else 'none'}..., state={state}")
+    
+    # 解析 query string 获取原始参数
+    query_params = dict(request.query_params)
+    logger.info(f"Query参数: {query_params}")
+    
+    # 检查是否有错误
+    if error:
+        err_msg = error_description or error
+        logger.warning(f"OAuth 回调错误: {error} - {err_msg}")
+        if state:
+            fail_login_session(state, err_msg)
+        return {
+            "success": False,
+            "message": f"登录失败: {err_msg}",
+        }
+
+    # 检查是否有 code
+    if not code:
+        logger.warning("OAuth 回调缺少授权码")
+        if state:
+            fail_login_session(state, "缺少授权码")
+        return {
+            "success": False,
+            "message": "登录失败: 缺少授权码",
+        }
+
+    # ============ 尝试获取数据库状态 ============
+    # 如果 simplified_login 有 SessionDatabase，使用它；否则跳过数据库验证
+    try:
+        from .simplified_login import SessionDatabase as SD
+        
+        # 强制重新初始化数据库连接
+        if hasattr(LoginStatusManager, '_db') and LoginStatusManager._db is not None:
+            SD._instance = None
+            LoginStatusManager._db = None
+        
+        if hasattr(LoginStatusManager, '_get_db'):
+            db = LoginStatusManager._get_db()
+            db._cleanup_expired()
+            
+            logger.info(f"直接查询数据库检查 state: {state}")
+            with sqlite3.connect(db.db_path) as conn:
+                conn.row_factory = sqlite3.Row
+                cursor = conn.execute("""
+                    SELECT session_id, status, created_at, expire_at 
+                    FROM login_sessions 
+                    ORDER BY created_at DESC
+                    LIMIT 10
+                """)
+                all_sessions = cursor.fetchall()
+                logger.info(f"数据库中直接查询到的会话数量: {len(all_sessions)}")
+                
+                for row in all_sessions:
+                    expire_at = datetime.fromisoformat(row['expire_at'])
+                    remaining = int((expire_at - datetime.now()).total_seconds())
+                    logger.info(f"  DB会话: {row['session_id'][:20]}... | 状态: {row['status']} | 剩余: {remaining}秒")
+                
+                cursor2 = conn.execute("""
+                    SELECT 1 FROM login_sessions WHERE session_id = ?
+                """, (state,))
+                db_exists = cursor2.fetchone() is not None
+                logger.info(f"直接查询 state '{state[:20]}...' 是否存在: {db_exists}")
+                
+    except ImportError:
+        logger.warning("simplified_login 没有 SessionDatabase，跳过数据库验证")
+        logger.warning("请确保使用 simplified_login_v2.py 版本")
+    except Exception as e:
+        logger.error(f"数据库操作异常: {e}")
+    
+    # 详细的 state 对比日志
+    logger.info(f"回调接收到的 state: '{state}'")
+    logger.info(f"state 长度: {len(state)}")
+    logger.info(f"state 类型: {type(state)}")
+    
+    # 检查数据库中是否存在此 state
+    db_exists = LoginStatusManager.check_state_exists(state) if hasattr(LoginStatusManager, 'check_state_exists') else False
+    logger.info(f"数据库中是否存在此 state: {db_exists}")
+    
+    # 获取会话信息
+    logger.info(f"尝试查找会话: state={state}")
+    session = LoginStatusManager.get_session(state)
+    logger.info(f"查找结果: {session}")
+    
+    if not session:
+        logger.warning(f"会话不存在或已过期: state={state}")
+        
+        # 打印所有现有的会话用于调试
+        all_sessions = LoginStatusManager.get_all_sessions() if hasattr(LoginStatusManager, 'get_all_sessions') else []
+        logger.warning(f"当前数据库中的会话数量: {len(all_sessions)}")
+        
+        # 详细对比
+        logger.warning("=" * 60)
+        logger.warning("详细对比:")
+        logger.warning(f"回调 state: '{state}'")
+        for row in all_sessions:
+            db_state = row['session_id']
+            logger.warning(f"数据库 state: '{db_state}'")
+            logger.warning(f"是否相等: {state == db_state}")
+            if state == db_state:
+                logger.warning("找到匹配的会话！")
+                break
+        logger.warning("=" * 60)
+        
+        return {
+            "success": False,
+            "message": "登录失败: 会话已过期",
+        }
+
+    try:
+        # 从请求中获取回调 URL（注意：需要加 /api 前缀）
+        base_url = str(request.base_url).rstrip("/")
+        redirect_uri = f"{base_url}/api/iflow/callback"
+        logger.debug(f"使用 redirect_uri: {redirect_uri}")
+
+        # 交换授权码获取 token
+        logger.debug("开始交换授权码...")
+        token_data = await auth_service.exchange_code_for_tokens(code, redirect_uri)
+
+        if token_data is None:
+            logger.error("交换授权码失败")
+            fail_login_session(state, "交换授权码失败")
+            return {
+                "success": False,
+                "message": "登录失败: 交换授权码失败",
+            }
+
+        # 保存认证信息
+        logger.debug(f"Token交换成功，email: {token_data.email}")
+        token_storage = auth_service.create_token_storage(token_data)
+        saved_path = auth_service.save_auth(token_storage)
+
+        logger.info(f"iFlow OAuth 认证成功: {token_data.email}")
+
+        # 标记登录完成
+        complete_login_session(
+            state,
+            token_data.email,
+            token_data.api_key,
+            auth_data={
+                "saved_path": saved_path,
+                "expire": token_data.expire,
+            }
+        )
+
+        # 返回成功页面（供浏览器显示）
+        return {
+            "success": True,
+            "message": "登录成功！请切换回应用",
+            "data": {
+                "email": token_data.email,
+                "saved_path": saved_path,
+            },
+        }
+
+    except Exception as e:
+        logger.error(f"处理 OAuth 回调异常: {e}")
+        import traceback
+        logger.error(f"堆栈跟踪: {traceback.format_exc()}")
+        fail_login_session(state, str(e))
+        return {
+            "success": False,
+            "message": f"登录失败: {str(e)}",
+        }
+
+
+@router.get("/iflow/login/callback/{session_id}")
+async def login_callback_page(
+    session_id: str,
+    email: str = "",
+    api_key: str = "",
+    error: str = "",
+):
+    """
+    简化版登录回调页面（兼容旧版本）
+
+    用户在 iFlow 网站完成登录后，会重定向到此页面。
+    此接口记录登录结果，并显示提示信息。
+
+    注意：此端点已弃用，请使用 /iflow/callback
+    """
+    from .simplified_login import LoginStatusManager
+
+    try:
+        if error:
+            # 登录失败
+            LoginStatusManager.fail_session(session_id, error)
+            return {
+                "success": False,
+                "message": f"登录失败: {error}",
+                "session_id": session_id,
+            }
+
+        if not email or not api_key:
+            # 参数不完整
+            logger.warning(f"登录回调参数不完整: email={email}, api_key={api_key}")
+
+        # 完成登录会话
+        if email and api_key:
+            LoginStatusManager.complete_session(session_id, email, api_key)
+
+        return {
+            "success": True,
+            "message": "登录成功！请切换回应用",
+            "session_id": session_id,
+        }
+
+    except Exception as e:
+        logger.error(f"登录回调处理异常: {e}")
+        return {
+            "success": False,
+            "message": f"处理失败: {str(e)}",
+            "session_id": session_id,
+        }
 
 
 __all__ = ["router"]

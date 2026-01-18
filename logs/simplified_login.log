@@ -1,0 +1,27 @@
+2026-01-18 09:07:38 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-01-18 09:07:38 | DEBUG    | Generated state: 9VGM1BAySE_PhqraxltPLQ
+2026-01-18 09:07:38 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-18 09:07:38 | DEBUG    | 创建会话: 9VGM1BAySE_PhqraxltPLQ
+2026-01-18 09:07:38 | INFO     | 创建登录会话: 9VGM1BAySE_PhqraxltPLQ
+2026-01-18 09:07:38 | DEBUG    | Session created in SQLite and memory
+2026-01-18 09:07:38 | INFO     | 创建登录会话成功: 9VGM1BAySE_PhqraxltPLQ
+2026-01-18 09:07:38 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=9VGM1BAySE_PhqraxltPLQ&client_id=10009311001
+2026-01-18 09:07:38 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-01-18 09:08:37 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-01-18 09:08:37 | DEBUG    | Generated state: P2DC4DJqlSI2GqvJ2fVxnQ
+2026-01-18 09:08:37 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-18 09:08:37 | DEBUG    | 创建会话: P2DC4DJqlSI2GqvJ2fVxnQ
+2026-01-18 09:08:37 | INFO     | 创建登录会话: P2DC4DJqlSI2GqvJ2fVxnQ
+2026-01-18 09:08:37 | DEBUG    | Session created in SQLite and memory
+2026-01-18 09:08:37 | INFO     | 创建登录会话成功: P2DC4DJqlSI2GqvJ2fVxnQ
+2026-01-18 09:08:37 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=P2DC4DJqlSI2GqvJ2fVxnQ&client_id=10009311001
+2026-01-18 09:08:37 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-01-18 09:11:05 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-01-18 09:11:05 | DEBUG    | Generated state: cuV6-N_QoGaQHlPFH_CW9Q
+2026-01-18 09:11:05 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-18 09:11:06 | DEBUG    | 创建会话: cuV6-N_QoGaQHlPFH_CW9Q
+2026-01-18 09:11:06 | INFO     | 创建登录会话: cuV6-N_QoGaQHlPFH_CW9Q
+2026-01-18 09:11:06 | DEBUG    | Session created in SQLite and memory
+2026-01-18 09:11:06 | INFO     | 创建登录会话成功: cuV6-N_QoGaQHlPFH_CW9Q
+2026-01-18 09:11:06 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=cuV6-N_QoGaQHlPFH_CW9Q&client_id=10009311001
+2026-01-18 09:11:06 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback

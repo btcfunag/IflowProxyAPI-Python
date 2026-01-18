@@ -157,3 +157,655 @@
 2026-01-17 10:24:39 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (366B, total:1116B): data:{"id":"98569e28-042d-46de-b3c6-6a67012b520c","object":"chat.completion.chunk","created":1768616678,"model":"deepsee...
 2026-01-17 10:24:49 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 642 行
 2026-01-17 10:24:49 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 321 个 chunks, 总计 117753 字节
+2026-01-17 13:28:24 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 13:28:24 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 13:28:24 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 13:28:24 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 13:28:24 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:39280
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '15719'}
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T13:28:36.648673
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-deepseek-v3.2-chat, messages: 4, stream: True (默认启用)
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 13:28:36 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 13:28:36 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 13:28:36 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: deepseek-v3.2-chat
+2026-01-17 13:28:40 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-17 13:28:40 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-17T13:28:40.497078
+2026-01-17 13:28:40 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (383B, total:383B): data:{"id":"18860bad-9bfe-4d68-bf9f-e7c3f6ac90d6","object":"chat.completion.chunk","created":1768627719,"model":"deepsee...
+2026-01-17 13:28:40 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (366B, total:749B): data:{"id":"18860bad-9bfe-4d68-bf9f-e7c3f6ac90d6","object":"chat.completion.chunk","created":1768627719,"model":"deepsee...
+2026-01-17 13:28:40 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (365B, total:1114B): data:{"id":"18860bad-9bfe-4d68-bf9f-e7c3f6ac90d6","object":"chat.completion.chunk","created":1768627719,"model":"deepsee...
+2026-01-17 13:28:41 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 64 行
+2026-01-17 13:28:41 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 32 个 chunks, 总计 11869 字节
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:48758
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '16130'}
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T13:29:26.752176
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-deepseek-v3.2-chat, messages: 6, stream: True (默认启用)
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 13:29:26 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 13:29:26 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 13:29:26 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: deepseek-v3.2-chat
+2026-01-17 13:29:29 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-17 13:29:29 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-17T13:29:29.470030
+2026-01-17 13:29:29 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (383B, total:383B): data:{"id":"0f1a6eba-9138-42f3-ac5c-741295321c1a","object":"chat.completion.chunk","created":1768627769,"model":"deepsee...
+2026-01-17 13:29:29 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (366B, total:749B): data:{"id":"0f1a6eba-9138-42f3-ac5c-741295321c1a","object":"chat.completion.chunk","created":1768627769,"model":"deepsee...
+2026-01-17 13:29:29 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (365B, total:1114B): data:{"id":"0f1a6eba-9138-42f3-ac5c-741295321c1a","object":"chat.completion.chunk","created":1768627769,"model":"deepsee...
+2026-01-17 13:29:30 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 46 行
+2026-01-17 13:29:30 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 23 个 chunks, 总计 8577 字节
+2026-01-17 14:05:28 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 14:05:28 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 14:05:28 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 14:05:28 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 14:05:28 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 14:06:32 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 14:06:32 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 14:06:32 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 14:06:32 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 14:06:32 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 14:15:29 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 14:15:29 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 14:15:29 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 14:15:29 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 14:15:29 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 14:15:42 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 14:15:42 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:36964
+2026-01-17 14:15:42 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 14:15:42 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 14:15:42 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 14:15:42 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.146 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 14:15:42 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 14:15:42 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 14:15:42 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 14:15:42 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 14:16:47 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 14:16:47 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 14:16:47 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 14:16:47 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 14:16:47 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 14:16:55 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 14:16:55 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:42748
+2026-01-17 14:16:55 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 14:16:55 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 14:16:55 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 14:16:55 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.146 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 14:16:55 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 14:16:55 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 14:16:55 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 14:16:55 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 14:22:05 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 14:22:05 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 14:22:05 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 14:22:05 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 14:22:05 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 14:22:13 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 14:22:13 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:41220
+2026-01-17 14:22:13 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 14:22:13 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 14:22:13 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 14:22:13 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.146 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 14:22:13 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 14:22:13 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 14:22:13 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 14:22:13 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 14:23:03 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 14:23:03 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 14:23:03 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 14:23:03 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 14:23:03 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 14:23:13 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 14:23:13 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:43684
+2026-01-17 14:23:13 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 14:23:13 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 14:23:13 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 14:23:13 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.146 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 14:23:13 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 14:23:13 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 14:23:13 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 14:23:13 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 14:23:53 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 14:23:53 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 14:23:53 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 14:23:53 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 14:23:53 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 14:25:00 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 14:25:00 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:45320
+2026-01-17 14:25:00 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 14:25:00 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 14:25:00 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 14:25:00 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.146 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 14:25:00 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 14:25:00 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 14:25:00 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 14:25:00 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 15:49:44 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 15:49:44 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 15:49:44 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 15:49:44 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 15:49:44 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 15:51:15 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 15:51:15 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 15:51:15 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 15:51:15 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 15:51:15 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:34748
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '16910'}
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T15:51:21.598574
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-deepseek-v3.2-chat, messages: 7, stream: True (默认启用)
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 15:51:21 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 15:51:21 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 15:51:42 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 15:51:42 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:54298
+2026-01-17 15:51:42 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 15:51:42 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 15:51:42 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 15:51:42 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.192 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 15:51:42 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 15:51:42 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 15:51:42 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 15:51:42 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:51034
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '17028'}
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T15:52:06.135248
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-minimax-m2.1, messages: 9, stream: True (默认启用)
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 15:52:06 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 15:52:06 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:42130
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '17158'}
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T15:52:19.726232
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-deepseek-v3.2-chat, messages: 11, stream: True (默认启用)
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 15:52:19 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 15:52:19 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:37632
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '15571'}
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T15:53:12.416937
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-deepseek-v3.2-chat, messages: 3, stream: True (默认启用)
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 15:53:12 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 15:53:12 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 15:53:35 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 15:53:35 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 15:53:35 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 15:53:35 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 15:53:35 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 15:55:30 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 15:55:30 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 15:55:30 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 15:55:30 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 15:55:30 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 15:56:18 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 15:56:18 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 15:56:18 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 15:56:18 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 15:56:18 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 15:56:34 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 15:56:34 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:60238
+2026-01-17 15:56:34 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 15:56:34 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 15:56:34 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 15:56:34 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.192 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 15:56:34 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 15:56:34 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 15:56:34 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 15:56:34 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 15:57:53 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 15:57:53 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 15:57:53 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 15:57:53 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 15:57:53 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 15:58:08 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 15:58:08 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:54264
+2026-01-17 15:58:08 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 15:58:08 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 15:58:08 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 15:58:08 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.192 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 15:58:08 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 15:58:08 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 15:58:08 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 15:58:08 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 15:58:49 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 15:58:49 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 15:58:49 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 15:58:49 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 15:58:49 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 15:58:57 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 15:58:57 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:40452
+2026-01-17 15:58:57 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 15:58:57 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 15:58:57 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 15:58:57 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.192 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 15:58:57 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 15:58:57 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 15:58:57 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 15:58:57 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 15:59:39 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 15:59:39 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 15:59:39 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 15:59:39 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 15:59:39 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:55892
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '15565'}
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T16:00:12.991999
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-minimax-m2.1, messages: 3, stream: True (默认启用)
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 16:00:12 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 16:00:12 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:55500
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '15689'}
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T16:00:33.389878
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-minimax-m2.1, messages: 5, stream: True (默认启用)
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 16:00:33 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 16:00:33 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:46280
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '15765'}
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T16:00:41.012742
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-tstars2.0, messages: 6, stream: True (默认启用)
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 16:00:41 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 16:00:41 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:55308
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '15934'}
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T16:02:17.213264
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-tstars2.0, messages: 9, stream: True (默认启用)
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 16:02:17 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 16:02:17 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 16:02:17 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: tstars2.0
+2026-01-17 16:02:20 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-17 16:02:20 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-17T16:02:20.228529
+2026-01-17 16:02:20 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (268B, total:268B): data:{"id":"chat","object":"chat.completion.chunk","created":1768636940,"extend_fields":{"traceId":"211b761b176863693953...
+2026-01-17 16:02:20 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (274B, total:542B): data:{"id":"chat","object":"chat.completion.chunk","created":1768636940,"extend_fields":{"traceId":"211b761b176863693953...
+2026-01-17 16:02:20 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (273B, total:815B): data:{"id":"chat","object":"chat.completion.chunk","created":1768636940,"extend_fields":{"traceId":"211b761b176863693953...
+2026-01-17 16:02:20 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 24 行
+2026-01-17 16:02:20 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 12 个 chunks, 总计 3848 字节
+2026-01-17 16:03:07 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 16:03:07 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 16:03:07 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 16:03:07 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 16:03:07 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 16:03:17 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 16:03:17 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:39922
+2026-01-17 16:03:17 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 16:03:17 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 16:03:17 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 16:03:17 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.192 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 16:03:17 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 16:03:17 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 16:03:17 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 16:03:17 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 16:04:33 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 16:04:33 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 16:04:33 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 16:04:33 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 16:04:33 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 16:04:42 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 16:04:42 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:53370
+2026-01-17 16:04:42 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 16:04:42 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 16:04:42 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 16:04:42 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.192 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 16:04:42 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 16:04:42 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 16:04:42 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 16:04:42 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 16:06:17 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 16:06:17 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 16:06:17 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 16:06:17 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 16:06:17 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 16:06:57 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 16:06:57 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:53360
+2026-01-17 16:06:57 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 16:06:57 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 16:06:57 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 16:06:57 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.192 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 16:06:57 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 16:06:57 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 16:06:57 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 16:06:57 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 16:33:26 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 16:33:26 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 16:33:26 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 16:33:26 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 16:33:26 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 16:33:52 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 16:33:52 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 16:33:52 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 16:33:52 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 16:33:52 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:51248
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '16452'}
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T16:34:03.459236
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-minimax-m2.1, messages: 13, stream: True (默认启用)
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 16:34:03 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 16:34:03 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 16:34:03 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: minimax-m2.1
+2026-01-17 16:34:05 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-17 16:34:05 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-17T16:34:05.389887
+2026-01-17 16:34:05 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (312B, total:312B): data:{"id":"05ba7c7c505449f81d7ee0cd8cb8f844","object":"chat.completion.chunk","created":1768638844,"model":"minimax-m2....
+2026-01-17 16:34:05 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (361B, total:673B): data:{"id":"05ba7c7c505449f81d7ee0cd8cb8f844","object":"chat.completion.chunk","created":1768638844,"model":"minimax-m2....
+2026-01-17 16:34:06 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (349B, total:1022B): data:{"id":"05ba7c7c505449f81d7ee0cd8cb8f844","object":"chat.completion.chunk","created":1768638844,"model":"minimax-m2....
+2026-01-17 16:34:06 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 6 行
+2026-01-17 16:34:06 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 3 个 chunks, 总计 1022 字节
+2026-01-17 16:34:38 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 16:34:38 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 16:34:38 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 16:34:38 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 16:34:38 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:55840
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '16966'}
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T16:34:59.410530
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-minimax-m2.1, messages: 15, stream: True (默认启用)
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 16:34:59 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 16:34:59 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 16:34:59 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: minimax-m2.1
+2026-01-17 16:35:00 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-17 16:35:00 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-17T16:35:00.482773
+2026-01-17 16:35:00 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (310B, total:310B): data:{"id":"05ba7cb4b313ba1f957c05546443e5dc","object":"chat.completion.chunk","created":1768638900,"model":"minimax-m2....
+2026-01-17 16:35:01 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (342B, total:652B): data:{"id":"05ba7cb4b313ba1f957c05546443e5dc","object":"chat.completion.chunk","created":1768638900,"model":"minimax-m2....
+2026-01-17 16:35:01 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (355B, total:1007B): data:{"id":"05ba7cb4b313ba1f957c05546443e5dc","object":"chat.completion.chunk","created":1768638900,"model":"minimax-m2....
+2026-01-17 16:35:03 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 12 行
+2026-01-17 16:35:03 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 6 个 chunks, 总计 2155 字节
+2026-01-17 16:42:17 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 16:42:17 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 16:42:17 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 16:42:17 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 16:42:17 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 16:54:52 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 16:54:52 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 16:54:52 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 16:54:52 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 16:54:52 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 16:59:50 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 16:59:50 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 16:59:50 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 16:59:50 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 16:59:50 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:35350
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '18426'}
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T16:59:57.548161
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-minimax-m2.1, messages: 17, stream: True (默认启用)
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 16:59:57 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 16:59:57 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 16:59:57 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: minimax-m2.1
+2026-01-17 16:59:58 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-17 16:59:58 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-17T16:59:58.672226
+2026-01-17 16:59:58 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (312B, total:312B): data:{"id":"05ba828ee1f4ce97f4328125b685d96a","object":"chat.completion.chunk","created":1768640398,"model":"minimax-m2....
+2026-01-17 16:59:59 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (392B, total:704B): data:{"id":"05ba828ee1f4ce97f4328125b685d96a","object":"chat.completion.chunk","created":1768640398,"model":"minimax-m2....
+2026-01-17 16:59:59 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 4 行
+2026-01-17 16:59:59 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 2 个 chunks, 总计 704 字节
+2026-01-17 17:00:13 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-17 17:00:13 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:34038
+2026-01-17 17:00:13 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-17 17:00:13 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-17 17:00:13 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-17 17:00:13 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.192 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-17 17:00:13 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-17 17:00:13 | INFO     | __main__:v1_models:192 - 加载到 2 个 iFlow 账号
+2026-01-17 17:00:13 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-17 17:00:13 | INFO     | __main__:v1_models:234 - 为 2 个账号生成 44 个模型
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:54888
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '18826'}
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T17:00:22.293395
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-minimax-m2.1, messages: 19, stream: True (默认启用)
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 17:00:22 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 17:00:22 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 17:00:22 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: minimax-m2.1
+2026-01-17 17:00:23 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-17 17:00:23 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-17T17:00:23.907844
+2026-01-17 17:00:23 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (310B, total:310B): data:{"id":"05ba82a7a85074f16a8b98767dd95390","object":"chat.completion.chunk","created":1768640423,"model":"minimax-m2....
+2026-01-17 17:00:24 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (336B, total:646B): data:{"id":"05ba82a7a85074f16a8b98767dd95390","object":"chat.completion.chunk","created":1768640423,"model":"minimax-m2....
+2026-01-17 17:00:24 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (339B, total:985B): data:{"id":"05ba82a7a85074f16a8b98767dd95390","object":"chat.completion.chunk","created":1768640423,"model":"minimax-m2....
+2026-01-17 17:19:50 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-17 17:19:50 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/auth.db
+2026-01-17 17:19:50 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/stores.db
+2026-01-17 17:19:50 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000github/CLIProxyAPI-Python/data/proxies.db
+2026-01-17 17:19:50 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:47772
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '16904'}
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T17:19:55.195073
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-minimax-m2.1, messages: 7, stream: True (默认启用)
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 17:19:55 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 17:19:55 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 17:19:55 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: minimax-m2.1
+2026-01-17 17:19:56 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-17 17:19:56 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-17T17:19:56.382631
+2026-01-17 17:19:56 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (312B, total:312B): data:{"id":"05ba873cd47a7250a91b91f56dd2017e","object":"chat.completion.chunk","created":1768641596,"model":"minimax-m2....
+2026-01-17 17:19:56 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (365B, total:677B): data:{"id":"05ba873cd47a7250a91b91f56dd2017e","object":"chat.completion.chunk","created":1768641596,"model":"minimax-m2....
+2026-01-17 17:19:57 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (390B, total:1067B): data:{"id":"05ba873cd47a7250a91b91f56dd2017e","object":"chat.completion.chunk","created":1768641596,"model":"minimax-m2....
+2026-01-17 17:19:57 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 6 行
+2026-01-17 17:19:57 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 3 个 chunks, 总计 1067 字节
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:54496
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '17628'}
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-17T18:39:10.536396
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-minimax-m2.1, messages: 9, stream: True (默认启用)
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-17 18:39:10 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-17 18:39:10 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-17 18:39:10 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: minimax-m2.1
+2026-01-17 18:39:11 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-17 18:39:11 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-17T18:39:11.664348
+2026-01-17 18:39:11 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (312B, total:312B): data:{"id":"05ba99cf8e13947cc3e7dd1f9358b490","object":"chat.completion.chunk","created":1768646351,"model":"minimax-m2....
+2026-01-17 18:39:12 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (369B, total:681B): data:{"id":"05ba99cf8e13947cc3e7dd1f9358b490","object":"chat.completion.chunk","created":1768646351,"model":"minimax-m2....
+2026-01-17 18:39:12 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (352B, total:1033B): data:{"id":"05ba99cf8e13947cc3e7dd1f9358b490","object":"chat.completion.chunk","created":1768646351,"model":"minimax-m2....
+2026-01-17 18:39:12 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 6 行
+2026-01-17 18:39:12 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 3 个 chunks, 总计 1033 字节
+2026-01-18 09:08:26 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-18 09:08:26 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/auth.db
+2026-01-18 09:08:26 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/stores.db
+2026-01-18 09:08:27 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/proxies.db
+2026-01-18 09:08:27 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-18 09:10:59 | INFO     | __main__:lifespan:111 - 正在初始化数据库...
+2026-01-18 09:10:59 | INFO     | app.auth.service:init_db:36 - 数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/auth.db
+2026-01-18 09:10:59 | INFO     | app.stores.service:init_db:81 - 存储数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/stores.db
+2026-01-18 09:10:59 | INFO     | app.proxy.service:init_db:41 - 代理数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/proxies.db
+2026-01-18 09:10:59 | INFO     | __main__:lifespan:116 - 所有服务初始化完成
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:556 - 收到 OAuth 回调请求
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:557 - 请求URL: http://localhost:8000/api/iflow/callback?code=e7fc8925c0c443cb8f34145d18e3bd39&state=cuV6-N_QoGaQHlPFH_CW9Q
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:558 - 原始参数: code=e7fc8925c0c443cb8f34145d18e3bd..., state=cuV6-N_QoGaQHlPFH_CW9Q
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:562 - Query参数: {'code': 'e7fc8925c0c443cb8f34145d18e3bd39', 'state': 'cuV6-N_QoGaQHlPFH_CW9Q'}
+2026-01-18 09:11:09 | INFO     | app.iflow.simplified_login:_init_db:123 - 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:599 - 直接查询数据库检查 state: cuV6-N_QoGaQHlPFH_CW9Q
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:609 - 数据库中直接查询到的会话数量: 3
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:614 -   DB会话: cuV6-N_QoGaQHlPFH_CW... | 状态: pending | 剩余: 1796秒
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:614 -   DB会话: P2DC4DJqlSI2GqvJ2fVx... | 状态: pending | 剩余: 1648秒
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:614 -   DB会话: 9VGM1BAySE_PhqraxltP... | 状态: pending | 剩余: 1589秒
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:620 - 直接查询 state 'cuV6-N_QoGaQHlPFH_CW...' 是否存在: True
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:629 - 回调接收到的 state: 'cuV6-N_QoGaQHlPFH_CW9Q'
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:630 - state 长度: 22
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:631 - state 类型: <class 'str'>
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:635 - 数据库中是否存在此 state: True
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:638 - 尝试查找会话: state=cuV6-N_QoGaQHlPFH_CW9Q
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:640 - 查找结果: <app.iflow.simplified_login.LoginSession object at 0x746fdfcc90>
+2026-01-18 09:11:09 | INFO     | app.iflow.service:save_auth:475 - 保存认证信息: iflow-617976182@qq.com-1768698669.json
+2026-01-18 09:11:09 | INFO     | app.iflow.routes:iflow_oauth_callback:690 - iFlow OAuth 认证成功: 617976182@qq.com
+2026-01-18 09:11:09 | INFO     | app.iflow.simplified_login:complete_session:197 - 登录会话完成: cuV6-N_QoGaQHlPFH_CW9Q, 617976182@qq.com
+2026-01-18 09:11:09 | INFO     | app.iflow.simplified_login:complete_session:408 - 登录会话完成: cuV6-N_QoGaQHlPFH_CW9Q, 617976182@qq.com
+2026-01-18 09:13:13 | INFO     | __main__:v1_models:182 - ===== MODELS REQUEST =====
+2026-01-18 09:13:13 | INFO     | __main__:v1_models:183 - 客户端: 127.0.0.1:58288
+2026-01-18 09:13:13 | INFO     | __main__:v1_models:184 - User-Agent: Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A
+2026-01-18 09:13:13 | INFO     | __main__:v1_models:185 - Accept: */*
+2026-01-18 09:13:13 | INFO     | __main__:v1_models:186 - Authorization: missing
+2026-01-18 09:13:13 | INFO     | __main__:v1_models:187 - 完整请求头: {'host': 'localhost:8000', 'connection': 'keep-alive', 'sec-ch-ua-platform': '"Android"', 'user-agent': 'Mozilla/5.0 (Linux; Android 16; RMX5060 Build/BP2A.250605.015; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/143.0.7499.192 Mobile Safari/537.36', 'sec-ch-ua': '"Android WebView";v="143", "Chromium";v="143", "Not A(Brand";v="24"', 'sec-ch-ua-mobile': '?1', 'accept': '*/*', 'origin': 'http://localhost:1234', 'x-requested-with': 'com.quick.pathonh', 'sec-fetch-site': 'same-site', 'sec-fetch-mode': 'cors', 'sec-fetch-dest': 'empty', 'referer': 'http://localhost:1234/', 'accept-encoding': 'gzip, deflate, br, zstd', 'accept-language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'}
+2026-01-18 09:13:13 | INFO     | __main__:v1_models:188 - ==========================
+2026-01-18 09:13:13 | INFO     | __main__:v1_models:192 - 加载到 3 个 iFlow 账号
+2026-01-18 09:13:13 | INFO     | __main__:v1_models:220 - 基础模型列表共 22 个模型
+2026-01-18 09:13:13 | INFO     | __main__:v1_models:234 - 为 3 个账号生成 66 个模型
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:54612
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '27122'}
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-18T09:13:47.378318
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 617976182@qq.com-minimax-m2.1, messages: 9, stream: True (默认启用)
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 61797...q.com
+2026-01-18 09:13:47 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 61797...q.com
+2026-01-18 09:13:47 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-18 09:13:47 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: minimax-m2.1
+2026-01-18 09:13:47 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-18 09:13:47 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 0 行
+2026-01-18 09:13:47 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 0 个 chunks, 总计 0 字节
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:47410
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '27165'}
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-18T09:14:04.219000
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 617976182@qq.com-minimax-m2, messages: 10, stream: True (默认启用)
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 61797...q.com
+2026-01-18 09:14:04 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 61797...q.com
+2026-01-18 09:14:04 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-18 09:14:04 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: minimax-m2
+2026-01-18 09:14:04 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-18 09:14:04 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 0 行
+2026-01-18 09:14:04 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 0 个 chunks, 总计 0 字节
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:36404
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '27218'}
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-18T09:14:25.079739
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 617976182@qq.com-deepseek-v3.2-chat, messages: 11, stream: True (默认启用)
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 61797...q.com
+2026-01-18 09:14:25 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 61797...q.com
+2026-01-18 09:14:25 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-18 09:14:25 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: deepseek-v3.2-chat
+2026-01-18 09:14:26 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-18 09:14:26 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-18T09:14:26.219716
+2026-01-18 09:14:26 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (383B, total:383B): data:{"id":"7ebe60e6-c2bf-4c7c-b056-c112e4de3dbc","object":"chat.completion.chunk","created":1768698865,"model":"deepsee...
+2026-01-18 09:14:26 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (366B, total:749B): data:{"id":"7ebe60e6-c2bf-4c7c-b056-c112e4de3dbc","object":"chat.completion.chunk","created":1768698865,"model":"deepsee...
+2026-01-18 09:14:26 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (365B, total:1114B): data:{"id":"7ebe60e6-c2bf-4c7c-b056-c112e4de3dbc","object":"chat.completion.chunk","created":1768698865,"model":"deepsee...
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:265 - ===== CHAT REQUEST =====
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:266 - 客户端: 127.0.0.1:59776
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:267 - User-Agent: Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:268 - Accept: text/event-stream
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:269 - Content-Type: application/json
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:270 - Authorization: Bearer [short]
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:271 - 完整请求头: {'host': 'localhost:8000', 'user-agent': 'Mozilla/5.0 (Linux; Android 10) AppleWebKit/537.36', 'accept-encoding': 'gzip, deflate', 'accept': 'text/event-stream', 'connection': 'keep-alive', 'content-type': 'application/json', 'authorization': 'Bearer', 'content-length': '27903'}
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:272 - 请求时间: 2026-01-18T09:14:50.054476
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:273 - =======================
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:298 - 请求参数 - model: 18132128919-glm-4.7, messages: 13, stream: True (默认启用)
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:305 - 从模型名提取邮箱: 18132...28919
+2026-01-18 09:14:50 | INFO     | __main__:v1_chat_completions:334 - 使用账号: 18132...28919
+2026-01-18 09:14:50 | INFO     | __main__:create_sse_stream:41 - 开始生成流式响应...
+2026-01-18 09:14:50 | INFO     | app.iflow.service:execute_chat_completion_stream:700 - 发送流式请求到 iFlow API - model: glm-4.7
+2026-01-18 09:14:50 | INFO     | app.iflow.service:execute_chat_completion_stream:711 - iFlow API 响应状态码: 200
+2026-01-18 09:14:50 | INFO     | __main__:create_sse_stream:52 - 首个chunk时间: 2026-01-18T09:14:50.683781
+2026-01-18 09:14:50 | INFO     | __main__:create_sse_stream:68 - Chunk 1 (266B, total:266B): data:{"id":"chat","object":"chat.completion.chunk","created":1768698891,"extend_fields":{"traceId":"21044e8b176869889083...
+2026-01-18 09:14:50 | INFO     | __main__:create_sse_stream:68 - Chunk 2 (259B, total:525B): data:{"id":"chat","object":"chat.completion.chunk","created":1768698891,"extend_fields":{"traceId":"21044e8b176869889083...
+2026-01-18 09:14:50 | INFO     | __main__:create_sse_stream:68 - Chunk 3 (259B, total:784B): data:{"id":"chat","object":"chat.completion.chunk","created":1768698891,"extend_fields":{"traceId":"21044e8b176869889083...
+2026-01-18 09:14:52 | INFO     | app.iflow.service:execute_chat_completion_stream:757 - 流式响应完成，共 90 行
+2026-01-18 09:14:52 | INFO     | __main__:create_sse_stream:73 - 流式响应完成，共 45 个 chunks, 总计 12813 字节

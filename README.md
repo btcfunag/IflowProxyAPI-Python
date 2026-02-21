@@ -217,5 +217,3 @@ MIT License
 欢迎提交 Issue 和 Pull Request！
 
 ## 作者
-
-智谱清言

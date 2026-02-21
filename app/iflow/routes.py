@@ -454,7 +454,7 @@ async def create_simplified_login(request: Request):
             db = SessionDatabase()
             db_path = db.db_path
         except Exception as e:
-            db_path = Path("/storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db")
+            db_path = Path(__file__).parent.parent.parent / "data" / "simplified_login_sessions.db"
             logger.warning(f"获取数据库实例失败，使用默认路径: {e}")
         
         logger.info(f"数据库路径: {db_path}")

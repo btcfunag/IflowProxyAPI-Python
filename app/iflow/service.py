@@ -1,9 +1,13 @@
 """iFlow 服务模块 - 核心业务逻辑实现"""
 import asyncio
 import base64
+import hashlib
+import hmac
 import json
 import secrets
 import gzip
+import time as time_module
+import uuid
 from datetime import datetime, timezone
 from typing import Optional, Dict, Any, AsyncGenerator
 import httpx
@@ -515,6 +519,37 @@ class IFlowExecutorService:
             self.http_client = httpx.AsyncClient(timeout=120.0)
         return self.http_client
     
+    @staticmethod
+    def _build_iflow_headers(api_key: str, stream: bool = False) -> dict:
+        """构建 iFlow API 请求头（含签名，与 Go 项目保持一致）"""
+        session_id = f"session-{uuid.uuid4()}"
+        timestamp = int(time_module.time() * 1000)  # 毫秒时间戳
+        user_agent = "iFlow-Cli"
+        
+        # HMAC-SHA256 签名: payload = "userAgent:sessionId:timestamp"
+        payload = f"{user_agent}:{session_id}:{timestamp}"
+        signature = hmac.new(
+            api_key.encode('utf-8'),
+            payload.encode('utf-8'),
+            hashlib.sha256
+        ).hexdigest()
+        
+        headers = {
+            "Content-Type": "application/json",
+            "Authorization": f"Bearer {api_key}",
+            "User-Agent": user_agent,
+            "session-id": session_id,
+            "x-iflow-timestamp": str(timestamp),
+            "x-iflow-signature": signature,
+        }
+        
+        if stream:
+            headers["Accept"] = "text/event-stream"
+        else:
+            headers["Accept"] = "application/json"
+        
+        return headers
+    
     async def close(self):
         """关闭 HTTP 客户端"""
         if self.http_client:
@@ -522,12 +557,88 @@ class IFlowExecutorService:
             self.http_client = None
         await self._auth_service.close()
     
+    async def _ensure_auth_valid(self, auth_storage: IFlowTokenStorage) -> IFlowTokenStorage:
+        """确保认证信息有效，必要时自动刷新（与 Go 项目 Refresh 逻辑保持一致）"""
+        # 检查是否需要刷新
+        needs_refresh = False
+        
+        if auth_storage.expire:
+            try:
+                expire_time = datetime.fromisoformat(auth_storage.expire.replace('Z', '+00:00'))
+                now = datetime.now(timezone.utc)
+                # 提前2天刷新，与 Go 项目 ShouldRefreshAPIKey 保持一致
+                if expire_time <= now + __import__('datetime').timedelta(days=2):
+                    needs_refresh = True
+                    logger.info(f"Token 即将过期或已过期 (expire: {auth_storage.expire})，需要刷新")
+            except Exception as e:
+                logger.warning(f"解析过期时间失败: {e}，尝试刷新")
+                needs_refresh = True
+        
+        if not needs_refresh:
+            return auth_storage
+        
+        # Cookie 认证刷新
+        if auth_storage.cookie and auth_storage.auth_type == "cookie":
+            logger.info(f"使用 Cookie 刷新 API Key: {auth_storage.email}")
+            try:
+                token_data = await self._auth_service.authenticate_with_cookie(auth_storage.cookie)
+                if token_data and token_data.api_key:
+                    auth_storage.api_key = token_data.api_key
+                    auth_storage.expire = token_data.expire
+                    auth_storage.last_refresh = datetime.now(timezone.utc).isoformat()
+                    # 保存更新后的认证信息
+                    self._auth_service.save_auth(
+                        self._auth_service.create_token_storage(token_data)
+                    )
+                    logger.info(f"Cookie 刷新成功，新过期时间: {token_data.expire}")
+                else:
+                    logger.error("Cookie 刷新失败，使用现有 token 继续")
+            except Exception as e:
+                logger.error(f"Cookie 刷新异常: {e}，使用现有 token 继续")
+        
+        # OAuth 认证刷新
+        elif auth_storage.refresh_token:
+            logger.info(f"使用 refresh_token 刷新 OAuth Token: {auth_storage.email}")
+            try:
+                token_data = await self._auth_service.refresh_tokens(auth_storage.refresh_token)
+                logger.info(f"refresh_tokens 返回: token_data={token_data is not None}, access_token={bool(token_data.access_token) if token_data else 'N/A'}, refresh_token={bool(token_data.refresh_token) if token_data else 'N/A'}")
+                if token_data and token_data.access_token:
+                    # 刷新 token 后需要重新获取用户信息（含新的 api_key）
+                    user_info = await self._auth_service._fetch_user_info(token_data.access_token)
+                    if user_info and user_info.get("apiKey"):
+                        auth_storage.api_key = user_info["apiKey"]
+                        token_data.api_key = user_info["apiKey"]
+                        token_data.email = auth_storage.email
+                    
+                    auth_storage.access_token = token_data.access_token
+                    if token_data.refresh_token:
+                        auth_storage.refresh_token = token_data.refresh_token
+                    auth_storage.expire = token_data.expire
+                    auth_storage.last_refresh = datetime.now(timezone.utc).isoformat()
+                    
+                    # 保存更新后的认证信息
+                    self._auth_service.save_auth(
+                        self._auth_service.create_token_storage(token_data)
+                    )
+                    logger.info(f"OAuth 刷新成功，新过期时间: {token_data.expire}")
+                else:
+                    logger.error("OAuth token 继续")
+            except Exception as e:
+                logger.error(f"OAuth 刷新异常: {e}，使用现有 token 继续")
+        else:
+            logger.warning("无可用刷新方式（无 cookie 也无 refresh_token），使用现有 token 继续")
+        
+        return auth_storage
+    
     async def execute_chat_completion(
         self,
         auth_storage: IFlowTokenStorage,
         request: IFlowChatCompletionRequest,
     ) -> IFlowChatCompletionResponse:
         """执行 Chat Completion 请求"""
+        # 执行前自动刷新过期 token
+        auth_storage = await self._ensure_auth_valid(auth_storage)
+        
         client = self._get_http_client()
         
         # 构建请求体
@@ -551,12 +662,7 @@ class IFlowExecutorService:
         if request.reasoning_effort is not None:
             request_body["reasoning_effort"] = request.reasoning_effort
         
-        headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {auth_storage.api_key[:10]}...",  # 脱敏
-            "User-Agent": "iFlow-Cli",
-            "Accept": "application/json",
-        }
+        headers = self._build_iflow_headers(auth_storage.api_key, stream=False)
         
         endpoint = f"{IFLOW_DEFAULT_API_BASE_URL}/chat/completions"
         
@@ -665,6 +771,9 @@ class IFlowExecutorService:
         request: IFlowChatCompletionRequest,
     ) -> AsyncGenerator[str, None]:
         """执行流式 Chat Completion 请求"""
+        # 执行前自动刷新过期 token
+        auth_storage = await self._ensure_auth_valid(auth_storage)
+        
         client = self._get_http_client()
         
         # 构建请求体
@@ -688,12 +797,7 @@ class IFlowExecutorService:
         if request.reasoning_effort is not None:
             request_body["reasoning_effort"] = request.reasoning_effort
         
-        headers = {
-            "Content-Type": "application/json",
-            "Authorization": f"Bearer {auth_storage.api_key}",
-            "User-Agent": "iFlow-Cli",
-            "Accept": "text/event-stream",
-        }
+        headers = self._build_iflow_headers(auth_storage.api_key, stream=True)
         
         endpoint = f"{IFLOW_DEFAULT_API_BASE_URL}/chat/completions"
         

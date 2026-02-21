@@ -25,3 +25,219 @@
 2026-01-18 09:11:06 | INFO     | 创建登录会话成功: cuV6-N_QoGaQHlPFH_CW9Q
 2026-01-18 09:11:06 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=cuV6-N_QoGaQHlPFH_CW9Q&client_id=10009311001
 2026-01-18 09:11:06 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-01-18 17:04:47 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-01-18 17:04:47 | DEBUG    | Generated state: ZkBEBHbaLQk-_orf67uIKA
+2026-01-18 17:04:47 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-18 17:04:47 | DEBUG    | 创建会话: ZkBEBHbaLQk-_orf67uIKA
+2026-01-18 17:04:47 | INFO     | 创建登录会话: ZkBEBHbaLQk-_orf67uIKA
+2026-01-18 17:04:47 | DEBUG    | Session created in SQLite and memory
+2026-01-18 17:04:47 | INFO     | 创建登录会话成功: ZkBEBHbaLQk-_orf67uIKA
+2026-01-18 17:04:47 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=ZkBEBHbaLQk-_orf67uIKA&client_id=10009311001
+2026-01-18 17:04:47 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-01-21 19:27:32 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-01-21 19:27:32 | DEBUG    | Generated state: hKeG5LOEKOFDC1rB2yiOVQ
+2026-01-21 19:27:32 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-21 19:27:32 | DEBUG    | 创建会话: hKeG5LOEKOFDC1rB2yiOVQ
+2026-01-21 19:27:32 | INFO     | 创建登录会话: hKeG5LOEKOFDC1rB2yiOVQ
+2026-01-21 19:27:32 | DEBUG    | Session created in SQLite and memory
+2026-01-21 19:27:32 | INFO     | 创建登录会话成功: hKeG5LOEKOFDC1rB2yiOVQ
+2026-01-21 19:27:32 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=hKeG5LOEKOFDC1rB2yiOVQ&client_id=10009311001
+2026-01-21 19:27:32 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-01-21 19:28:00 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-01-21 19:28:00 | DEBUG    | Generated state: O4uq3eo_sFxGLYxTjV5W2A
+2026-01-21 19:28:00 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-21 19:28:00 | DEBUG    | 创建会话: O4uq3eo_sFxGLYxTjV5W2A
+2026-01-21 19:28:00 | INFO     | 创建登录会话: O4uq3eo_sFxGLYxTjV5W2A
+2026-01-21 19:28:00 | DEBUG    | Session created in SQLite and memory
+2026-01-21 19:28:00 | INFO     | 创建登录会话成功: O4uq3eo_sFxGLYxTjV5W2A
+2026-01-21 19:28:00 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=O4uq3eo_sFxGLYxTjV5W2A&client_id=10009311001
+2026-01-21 19:28:00 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-01-22 07:19:36 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-01-22 07:19:36 | DEBUG    | Generated state: SYodBBNSeo_rBHGBTi106w
+2026-01-22 07:19:36 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-22 07:19:36 | DEBUG    | 创建会话: SYodBBNSeo_rBHGBTi106w
+2026-01-22 07:19:36 | INFO     | 创建登录会话: SYodBBNSeo_rBHGBTi106w
+2026-01-22 07:19:36 | DEBUG    | Session created in SQLite and memory
+2026-01-22 07:19:36 | INFO     | 创建登录会话成功: SYodBBNSeo_rBHGBTi106w
+2026-01-22 07:19:36 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=SYodBBNSeo_rBHGBTi106w&client_id=10009311001
+2026-01-22 07:19:36 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-01-22 07:20:07 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-01-22 07:20:07 | DEBUG    | Generated state: c4vlPtd0bUXig9ppHAJTwg
+2026-01-22 07:20:07 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-22 07:20:07 | DEBUG    | 创建会话: c4vlPtd0bUXig9ppHAJTwg
+2026-01-22 07:20:07 | INFO     | 创建登录会话: c4vlPtd0bUXig9ppHAJTwg
+2026-01-22 07:20:07 | DEBUG    | Session created in SQLite and memory
+2026-01-22 07:20:07 | INFO     | 创建登录会话成功: c4vlPtd0bUXig9ppHAJTwg
+2026-01-22 07:20:07 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=c4vlPtd0bUXig9ppHAJTwg&client_id=10009311001
+2026-01-22 07:20:07 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-01-22 07:21:12 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-01-22 07:21:12 | DEBUG    | Generated state: ZRqeA2lHmqo-p1A8wpjC6g
+2026-01-22 07:21:12 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-22 07:21:12 | DEBUG    | 创建会话: ZRqeA2lHmqo-p1A8wpjC6g
+2026-01-22 07:21:12 | INFO     | 创建登录会话: ZRqeA2lHmqo-p1A8wpjC6g
+2026-01-22 07:21:12 | DEBUG    | Session created in SQLite and memory
+2026-01-22 07:21:12 | INFO     | 创建登录会话成功: ZRqeA2lHmqo-p1A8wpjC6g
+2026-01-22 07:21:12 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=ZRqeA2lHmqo-p1A8wpjC6g&client_id=10009311001
+2026-01-22 07:21:12 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-01-22 07:22:00 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-01-22 07:22:00 | DEBUG    | Generated state: akBEGHiNEuLu6sk6cO-eIQ
+2026-01-22 07:22:00 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-01-22 07:22:00 | DEBUG    | 创建会话: akBEGHiNEuLu6sk6cO-eIQ
+2026-01-22 07:22:00 | INFO     | 创建登录会话: akBEGHiNEuLu6sk6cO-eIQ
+2026-01-22 07:22:00 | DEBUG    | Session created in SQLite and memory
+2026-01-22 07:22:00 | INFO     | 创建登录会话成功: akBEGHiNEuLu6sk6cO-eIQ
+2026-01-22 07:22:00 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=akBEGHiNEuLu6sk6cO-eIQ&client_id=10009311001
+2026-01-22 07:22:00 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 09:44:17 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 09:44:17 | DEBUG    | Generated state: C4HzmerigUaGbX-6QAijwg
+2026-02-03 09:44:17 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 09:44:17 | DEBUG    | 创建会话: C4HzmerigUaGbX-6QAijwg
+2026-02-03 09:44:17 | INFO     | 创建登录会话: C4HzmerigUaGbX-6QAijwg
+2026-02-03 09:44:17 | DEBUG    | Session created in SQLite and memory
+2026-02-03 09:44:17 | INFO     | 创建登录会话成功: C4HzmerigUaGbX-6QAijwg
+2026-02-03 09:44:17 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=C4HzmerigUaGbX-6QAijwg&client_id=10009311001
+2026-02-03 09:44:17 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 09:45:09 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 09:45:09 | DEBUG    | Generated state: qkCIRSW_59N6niJX2sgbGg
+2026-02-03 09:45:09 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 09:45:09 | DEBUG    | 创建会话: qkCIRSW_59N6niJX2sgbGg
+2026-02-03 09:45:09 | INFO     | 创建登录会话: qkCIRSW_59N6niJX2sgbGg
+2026-02-03 09:45:09 | DEBUG    | Session created in SQLite and memory
+2026-02-03 09:45:09 | INFO     | 创建登录会话成功: qkCIRSW_59N6niJX2sgbGg
+2026-02-03 09:45:09 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=qkCIRSW_59N6niJX2sgbGg&client_id=10009311001
+2026-02-03 09:45:09 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 09:46:06 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 09:46:06 | DEBUG    | Generated state: 3TeVj-JFvN0YFkFyiHi4UQ
+2026-02-03 09:46:06 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 09:46:06 | DEBUG    | 创建会话: 3TeVj-JFvN0YFkFyiHi4UQ
+2026-02-03 09:46:06 | INFO     | 创建登录会话: 3TeVj-JFvN0YFkFyiHi4UQ
+2026-02-03 09:46:06 | DEBUG    | Session created in SQLite and memory
+2026-02-03 09:46:06 | INFO     | 创建登录会话成功: 3TeVj-JFvN0YFkFyiHi4UQ
+2026-02-03 09:46:06 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=3TeVj-JFvN0YFkFyiHi4UQ&client_id=10009311001
+2026-02-03 09:46:06 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 09:46:56 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 09:46:56 | DEBUG    | Generated state: D8bIgSrnYo0UwCHUq7ZHsw
+2026-02-03 09:46:56 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 09:46:56 | DEBUG    | 创建会话: D8bIgSrnYo0UwCHUq7ZHsw
+2026-02-03 09:46:56 | INFO     | 创建登录会话: D8bIgSrnYo0UwCHUq7ZHsw
+2026-02-03 09:46:56 | DEBUG    | Session created in SQLite and memory
+2026-02-03 09:46:56 | INFO     | 创建登录会话成功: D8bIgSrnYo0UwCHUq7ZHsw
+2026-02-03 09:46:56 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=D8bIgSrnYo0UwCHUq7ZHsw&client_id=10009311001
+2026-02-03 09:46:56 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 09:48:05 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 09:48:05 | DEBUG    | Generated state: Y74DgMYSMeo1TVyQ3aM6IA
+2026-02-03 09:48:05 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 09:48:05 | DEBUG    | 创建会话: Y74DgMYSMeo1TVyQ3aM6IA
+2026-02-03 09:48:05 | INFO     | 创建登录会话: Y74DgMYSMeo1TVyQ3aM6IA
+2026-02-03 09:48:05 | DEBUG    | Session created in SQLite and memory
+2026-02-03 09:48:05 | INFO     | 创建登录会话成功: Y74DgMYSMeo1TVyQ3aM6IA
+2026-02-03 09:48:05 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=Y74DgMYSMeo1TVyQ3aM6IA&client_id=10009311001
+2026-02-03 09:48:05 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 09:48:56 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 09:48:56 | DEBUG    | Generated state: o7IIeTUvoVWHLUOD5k-psw
+2026-02-03 09:48:56 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 09:48:56 | DEBUG    | 创建会话: o7IIeTUvoVWHLUOD5k-psw
+2026-02-03 09:48:56 | INFO     | 创建登录会话: o7IIeTUvoVWHLUOD5k-psw
+2026-02-03 09:48:56 | DEBUG    | Session created in SQLite and memory
+2026-02-03 09:48:56 | INFO     | 创建登录会话成功: o7IIeTUvoVWHLUOD5k-psw
+2026-02-03 09:48:56 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=o7IIeTUvoVWHLUOD5k-psw&client_id=10009311001
+2026-02-03 09:48:56 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 09:49:55 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 09:49:55 | DEBUG    | Generated state: o5IoVVV9liMmEDMaj5n20Q
+2026-02-03 09:49:55 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 09:49:55 | DEBUG    | 创建会话: o5IoVVV9liMmEDMaj5n20Q
+2026-02-03 09:49:55 | INFO     | 创建登录会话: o5IoVVV9liMmEDMaj5n20Q
+2026-02-03 09:49:55 | DEBUG    | Session created in SQLite and memory
+2026-02-03 09:49:55 | INFO     | 创建登录会话成功: o5IoVVV9liMmEDMaj5n20Q
+2026-02-03 09:49:55 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=o5IoVVV9liMmEDMaj5n20Q&client_id=10009311001
+2026-02-03 09:49:55 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 09:50:55 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 09:50:55 | DEBUG    | Generated state: FFm_QXKuWxeH5mLVOdIy2g
+2026-02-03 09:50:55 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 09:50:55 | DEBUG    | 创建会话: FFm_QXKuWxeH5mLVOdIy2g
+2026-02-03 09:50:55 | INFO     | 创建登录会话: FFm_QXKuWxeH5mLVOdIy2g
+2026-02-03 09:50:55 | DEBUG    | Session created in SQLite and memory
+2026-02-03 09:50:55 | INFO     | 创建登录会话成功: FFm_QXKuWxeH5mLVOdIy2g
+2026-02-03 09:50:55 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=FFm_QXKuWxeH5mLVOdIy2g&client_id=10009311001
+2026-02-03 09:50:55 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 09:52:57 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 09:52:57 | DEBUG    | Generated state: pOMi1hy_0wzrKRf709oUxw
+2026-02-03 09:52:57 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 09:52:57 | DEBUG    | 创建会话: pOMi1hy_0wzrKRf709oUxw
+2026-02-03 09:52:57 | INFO     | 创建登录会话: pOMi1hy_0wzrKRf709oUxw
+2026-02-03 09:52:57 | DEBUG    | Session created in SQLite and memory
+2026-02-03 09:52:57 | INFO     | 创建登录会话成功: pOMi1hy_0wzrKRf709oUxw
+2026-02-03 09:52:57 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=pOMi1hy_0wzrKRf709oUxw&client_id=10009311001
+2026-02-03 09:52:57 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 09:57:10 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 09:57:10 | DEBUG    | Generated state: 6v7PF6RhlQtH0Ui9vrF6bw
+2026-02-03 09:57:10 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 09:57:10 | DEBUG    | 创建会话: 6v7PF6RhlQtH0Ui9vrF6bw
+2026-02-03 09:57:10 | INFO     | 创建登录会话: 6v7PF6RhlQtH0Ui9vrF6bw
+2026-02-03 09:57:10 | DEBUG    | Session created in SQLite and memory
+2026-02-03 09:57:10 | INFO     | 创建登录会话成功: 6v7PF6RhlQtH0Ui9vrF6bw
+2026-02-03 09:57:10 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=6v7PF6RhlQtH0Ui9vrF6bw&client_id=10009311001
+2026-02-03 09:57:10 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 11:10:53 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 11:10:53 | DEBUG    | Generated state: Mj4C5aIr47SmwQWEkN6AVg
+2026-02-03 11:10:53 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 11:10:53 | DEBUG    | 创建会话: Mj4C5aIr47SmwQWEkN6AVg
+2026-02-03 11:10:53 | INFO     | 创建登录会话: Mj4C5aIr47SmwQWEkN6AVg
+2026-02-03 11:10:53 | DEBUG    | Session created in SQLite and memory
+2026-02-03 11:10:53 | INFO     | 创建登录会话成功: Mj4C5aIr47SmwQWEkN6AVg
+2026-02-03 11:10:53 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=Mj4C5aIr47SmwQWEkN6AVg&client_id=10009311001
+2026-02-03 11:10:53 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 11:26:35 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 11:26:35 | DEBUG    | Generated state: ZG1wbVc2O4En2BUaBsdxjw
+2026-02-03 11:26:35 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000test/CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 11:26:35 | DEBUG    | 创建会话: ZG1wbVc2O4En2BUaBsdxjw
+2026-02-03 11:26:35 | INFO     | 创建登录会话: ZG1wbVc2O4En2BUaBsdxjw
+2026-02-03 11:26:35 | DEBUG    | Session created in SQLite and memory
+2026-02-03 11:26:35 | INFO     | 创建登录会话成功: ZG1wbVc2O4En2BUaBsdxjw
+2026-02-03 11:26:35 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=ZG1wbVc2O4En2BUaBsdxjw&client_id=10009311001
+2026-02-03 11:26:35 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 11:28:27 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 11:28:27 | DEBUG    | Generated state: 1P6MZspV2JUi_5rpV7k0RA
+2026-02-03 11:28:27 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000test/CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 11:28:27 | DEBUG    | 创建会话: 1P6MZspV2JUi_5rpV7k0RA
+2026-02-03 11:28:27 | INFO     | 创建登录会话: 1P6MZspV2JUi_5rpV7k0RA
+2026-02-03 11:28:28 | DEBUG    | Session created in SQLite and memory
+2026-02-03 11:28:28 | INFO     | 创建登录会话成功: 1P6MZspV2JUi_5rpV7k0RA
+2026-02-03 11:28:28 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=1P6MZspV2JUi_5rpV7k0RA&client_id=10009311001
+2026-02-03 11:28:28 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-03 11:29:33 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-03 11:29:33 | DEBUG    | Generated state: 62ZGrwYkL0rd9CO5RKU35g
+2026-02-03 11:29:33 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000test/CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-03 11:29:33 | DEBUG    | 创建会话: 62ZGrwYkL0rd9CO5RKU35g
+2026-02-03 11:29:33 | INFO     | 创建登录会话: 62ZGrwYkL0rd9CO5RKU35g
+2026-02-03 11:29:33 | DEBUG    | Session created in SQLite and memory
+2026-02-03 11:29:33 | INFO     | 创建登录会话成功: 62ZGrwYkL0rd9CO5RKU35g
+2026-02-03 11:29:33 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=62ZGrwYkL0rd9CO5RKU35g&client_id=10009311001
+2026-02-03 11:29:33 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-21 15:52:19 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-21 15:52:19 | DEBUG    | Generated state: zUBY2llRoE7T_tL1uu3Muw
+2026-02-21 15:52:19 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000test/CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-21 15:52:19 | DEBUG    | 创建会话: zUBY2llRoE7T_tL1uu3Muw
+2026-02-21 15:52:19 | INFO     | 创建登录会话: zUBY2llRoE7T_tL1uu3Muw
+2026-02-21 15:52:19 | DEBUG    | Session created in SQLite and memory
+2026-02-21 15:52:19 | INFO     | 创建登录会话成功: zUBY2llRoE7T_tL1uu3Muw
+2026-02-21 15:52:19 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=zUBY2llRoE7T_tL1uu3Muw&client_id=10009311001
+2026-02-21 15:52:19 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-21 16:03:54 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-21 16:03:54 | DEBUG    | Generated state: HvJFiSu0q0dgmGwbY4deLw
+2026-02-21 16:03:54 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000test/CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-21 16:03:54 | DEBUG    | 创建会话: HvJFiSu0q0dgmGwbY4deLw
+2026-02-21 16:03:54 | INFO     | 创建登录会话: HvJFiSu0q0dgmGwbY4deLw
+2026-02-21 16:03:54 | DEBUG    | Session created in SQLite and memory
+2026-02-21 16:03:54 | INFO     | 创建登录会话成功: HvJFiSu0q0dgmGwbY4deLw
+2026-02-21 16:03:54 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=HvJFiSu0q0dgmGwbY4deLw&client_id=10009311001
+2026-02-21 16:03:54 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback
+2026-02-21 16:04:14 | DEBUG    | create_login_session called with server_url=http://localhost:8000
+2026-02-21 16:04:14 | DEBUG    | Generated state: RFkMTU2HwMjK5BFPsPHzdQ
+2026-02-21 16:04:14 | INFO     | 会话数据库初始化完成: /storage/emulated/0/000test/CLIProxyAPI-Python/data/simplified_login_sessions.db
+2026-02-21 16:04:14 | DEBUG    | 创建会话: RFkMTU2HwMjK5BFPsPHzdQ
+2026-02-21 16:04:14 | INFO     | 创建登录会话: RFkMTU2HwMjK5BFPsPHzdQ
+2026-02-21 16:04:14 | DEBUG    | Session created in SQLite and memory
+2026-02-21 16:04:14 | INFO     | 创建登录会话成功: RFkMTU2HwMjK5BFPsPHzdQ
+2026-02-21 16:04:14 | INFO     | 授权 URL: https://iflow.cn/oauth?loginMethod=phone&type=phone&redirect=http%3A%2F%2Flocalhost%3A8000%2Fapi%2Fiflow%2Fcallback&state=RFkMTU2HwMjK5BFPsPHzdQ&client_id=10009311001
+2026-02-21 16:04:14 | INFO     | 回调 URL: http://localhost:8000/api/iflow/callback

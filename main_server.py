@@ -224,7 +224,7 @@ def create_app():
         for auth in auths:
             for base_model in iflow_models:
                 model_entry = {
-                    "id": f"{auth.email}-{base_model['id']}",
+                    "id": f"{base_model['id']}-{auth.email}",
                     "object": "model",
                     "created": base_model["created"],
                     "owned_by": auth.email,
@@ -299,12 +299,12 @@ def create_app():
         logger.debug(f"完整请求体: {body}")
         
         # 记录认证邮箱信息
-        model_parts = model.split("-", 1)
+        model_parts = model.rsplit("-", 1)
         if len(model_parts) >= 2:
-            email = model_parts[0]
+            email = model_parts[1]
             logger.info(f"从模型名提取邮箱: {email[:5]}...{email[-5:]}")
         else:
-            logger.info(f"模型名无邮箱前缀，将使用默认账号")
+            logger.info(f"模型名无邮箱后缀，将使用默认账号")
         
         # 验证必要参数
         if not model:
@@ -314,17 +314,17 @@ def create_app():
             raise HTTPException(status_code=400, detail="消息不能为空")
         
         # 加载认证信息
-        model_parts = model.split("-", 1)
+        model_parts = model.rsplit("-", 1)
         if len(model_parts) < 2:
             auths = auth_svc.load_all_auths()
-            logger.debug(f"未检测到邮箱前缀，使用账号列表，共 {len(auths)} 个账号")
+            logger.debug(f"未检测到邮箱后缀，使用账号列表，共 {len(auths)} 个账号")
             if not auths:
                 raise HTTPException(status_code=401, detail="未配置 iFlow 账号")
             auth_storage = auths[0]
             actual_model = model
         else:
-            email = model_parts[0]
-            actual_model = model_parts[1]
+            actual_model = model_parts[0]
+            email = model_parts[1]
             logger.debug(f"提取邮箱: {email}, 实际模型: {actual_model}")
             auth_storage = auth_svc.load_auth(email)
             

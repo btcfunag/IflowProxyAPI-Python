@@ -57,7 +57,7 @@ except ImportError:
             """写入日志到文件"""
             try:
                 if self.log_file is None:
-                    log_dir = Path("/storage/emulated/0/000CLIProxyAPI-Python/logs")
+                    log_dir = Path(__file__).parent.parent.parent / "logs"
                     log_dir.mkdir(parents=True, exist_ok=True)
                     self.log_file = str(log_dir / "simplified_login.log")
                 
@@ -68,7 +68,7 @@ except ImportError:
                 pass
     
     logger = SimpleLogger()
-    DATA_DIR = Path("/storage/emulated/0/000CLIProxyAPI-Python/data")
+    DATA_DIR = Path(__file__).parent.parent.parent / "data"
     
     # 默认配置
     IFLOW_OAUTH_AUTHORIZE_ENDPOINT = "https://iflow.cn/oauth"
